@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<!-- By: Rayan Alkhelaiwi -->
+<!-- For General Assembly's Front-End Web Development -->
+<!-- To-do List Website -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- This is the main -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Exo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/main.css">
+    <title>To-Do List</title>
+</head>
+<body>
+    <h1>To-do List</h1>
+    <p>Click on the item to mark as complete</p>
+
+    <!-- user's input for the items -->
+    <div class="entery row">
+        <div class="entryBox">
+            <input id="enterItem" type="text" placeholder="Enter here..." maxlength="32">
+            <button id="btn">Add</button>
+        </div>
+    </div>
+
+    <!-- Populate the user's items   -->
+    <div class="list row">
+        <div id="items">
+            <ul class="item"></ul>
+        </div>
+    </div>
+
+</body>
+<script src="script/jQuery.min.js"></script>
+<script src="script/script.js"></script>
+</html>

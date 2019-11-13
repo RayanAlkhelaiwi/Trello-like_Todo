@@ -5,6 +5,7 @@
 <!-- To-do List Website -->
 
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,26 +16,37 @@
     <link rel="stylesheet" href="style/main.css">
     <title>To-Do List</title>
 </head>
+
 <body>
-    <h1>To-do List</h1>
-    <p>Click on the item to mark as complete</p>
 
-    <!-- user's input for the items -->
-    <div class="entery row">
-        <div class="entryBox">
-            <input id="enterItem" type="text" placeholder="Enter here..." maxlength="32">
-            <button id="btn">Add</button>
-        </div>
-    </div>
+    <div class="container">
 
-    <!-- Populate the user's items   -->
-    <div class="list row">
-        <div id="items">
-            <ul class="item"></ul>
+        <!-- The welcome text -->
+        <div class="row">
+            <h1>To-do List</h1>
+            <p>Click on the item to mark as complete</p>
         </div>
+
+        <!-- user's input for the items -->
+        <div class="entery row">
+            <div class="entryBox">
+                <input id="userInputBox" type="text" placeholder="Enter here..." maxlength="32">
+                <button id="addBtn">Add</button>
+            </div>
+        </div>
+
+        <!-- Populate the user's items   -->
+        <div class="list row">
+            <div id="list">
+                <ul id="items"></ul>
+            </div>
+        </div>
+
     </div>
 
 </body>
+
 <script src="script/jQuery.min.js"></script>
 <script src="script/script.js"></script>
+
 </html>

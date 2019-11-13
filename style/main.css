@@ -5,7 +5,9 @@
 */
 
 body {
+    background-color: #00878a;
+    color: #89c400;
     font-family: 'Montserrat', sans-serif;
     /* font-family: 'Exo', sans-serif; */
-
+    display: inline-block;
 }

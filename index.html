@@ -22,23 +22,32 @@
     <div class="container">
 
         <!-- The welcome text -->
-        <div class="row">
-            <h1>To-do List</h1>
-            <p>Click on the item to mark as complete</p>
-        </div>
+        <div class="column firstColumn">
+            <div class="row">
+                <h1>To-do List</h1>
+                <p id="completeSentence">Click on the item to mark as complete</p>
+            </div>
 
-        <!-- user's input for the items -->
-        <div class="entery row">
-            <div class="entryBox">
-                <input id="userInputBox" type="text" placeholder="Enter here..." maxlength="32">
-                <button id="addBtn">Add</button>
+            <!-- user's input for the items -->
+            <div class="entery row">
+                <div class="entryBox">
+                    <input id="userInputBox" type="text" placeholder="Enter here..." maxlength="32">
+                    <button id="addBtn">Add</button>
+                </div>
             </div>
         </div>
 
         <!-- Populate the user's items   -->
-        <div class="list row">
+        <div class="column">
             <div id="list">
-                <ul id="items"></ul>
+                <p id="results">Results:</p>
+                <ul id="items">
+                    <li>Clean the room</li>
+                    <li>Do the final project</li>
+                    <li>Write the report</li>
+                    <li>Do the dishes</li>
+                    <li>Pack the backpack</li>
+                </ul>
             </div>
         </div>
 

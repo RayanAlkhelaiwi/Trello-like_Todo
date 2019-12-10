@@ -11,51 +11,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- This is the main -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="style/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Exo&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/main.css">
     <title>To-Do List</title>
 </head>
 
-<body>
+<body id="topOfPage">
 
     <div class="container">
+        <div class="row">
+            <div class="col-md-2 columns"></div>
+            <div id="mainHeader" class="col-md-8 columns">
+                <p>To-Do List</p>
+            </div>
+            <div class="col-md-2 columns"></div>
+        </div>
 
-        <!-- The welcome text -->
-        <div class="column firstColumn">
-            <div class="row">
-                <h1>To-do List</h1>
-                <p id="completeSentence">Click on the item to mark as complete</p>
+        <div class="row">
+            <div id="firstColumn" class="col-md-4 columns">
+                <p id="completeSentenceHint">Click on the item to mark as complete</p>
+
+                <!-- user's input for the items -->
+                <input id="userInputBox" type="text" placeholder="Enter here..." maxlength="20">
+                <button type="submit" id="addBtn" class="addBtn btn btn-primary">Add</button>
             </div>
 
-            <!-- user's input for the items -->
-            <div class="entery row">
-                <div class="entryBox">
-                    <input id="userInputBox" type="text" placeholder="Enter here..." maxlength="32">
-                    <button id="addBtn">Add</button>
+            <!-- Populate the user's items here -->
+            <div id="secondColumn" class="col-md-4 columns">
+                <div id="listAddedItems">
+                    <p id="AddedItemsTitle">List:</p>
+                    <ul id="AddedItems">
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Move the completed items here -->
+            <div id="thirdColumn" class="col-md-4 columns">
+                <div id="listCompletedItems">
+                    <p id="completedItemsTitle">Completed:</p>
+                    <ul id="completedItems" class="moveCompleted">
+                    </ul>
                 </div>
             </div>
         </div>
-
-        <!-- Populate the user's items   -->
-        <div class="column">
-            <div id="list">
-                <p id="results">Results:</p>
-                <ul id="items">
-                    <li>Clean the room</li>
-                    <li>Do the final project</li>
-                    <li>Write the report</li>
-                    <li>Do the dishes</li>
-                    <li>Pack the backpack</li>
-                </ul>
-            </div>
-        </div>
-
     </div>
 
-</body>
+    <button id="displayWhenScrolling" class="hide btn btn-warning">^</button>
 
-<script src="script/jQuery.min.js"></script>
-<script src="script/script.js"></script>
+    <!-- https://getbootstrap.com/docs/4.3/getting-started/introduction/ -->
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script> -->
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script> -->
+    <script src="script/jquery-3.4.1.min.js"></script>
+    <script src="script/jquery.scrollTo.min.js"></script>
+    <script src="script/jquery.waypoints.min.js"></script>
+    <script src="script/bootstrap.min.js"></script>
+    <script src="script/script.js"></script>
+</body>
 
 </html>

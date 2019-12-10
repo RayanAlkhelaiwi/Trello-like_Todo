@@ -6,51 +6,78 @@
 
 $(document).ready(function () {
 
-    console.log("jQuery's Connected.");
-
-    var userInputBox = document.getElementById("userInputBox"); //$("#userInputBox");
+    var userInputBox = document.getElementById("userInputBox");
     var addBtn = $("#addBtn");
-    var itemsList = document.querySelector("ul"); // $("#items");
+    var addedItemsList = document.querySelector("#AddedItems");
+    var completedItemsList = document.querySelector("#completedItems");
 
     // Accept items on button click
+    var liIdCounter = 1; // To have dynamic id for each list item
     function addItemsClick() {
-
         var createItems = document.createElement("li");
+        createItems.setAttribute("id", "li" + (liIdCounter++));
         var itemsNode = document.createTextNode(userInputBox.value);
+        createItems.appendChild(itemsNode);
 
-        if (userInputBox.value.length > 0) { // To make sure not to add empty items (without the user's input).
-            createItems.appendChild(itemsNode);
-            itemsList.appendChild(createItems);
+        // Form Validation: To make sure not to add empty items (without the user's input)
+        if (userInputBox.value.length > 0) {
+            addedItemsList.appendChild(createItems);
         }
 
-        userInputBox.value = ""; // Reset the Input box after adding the item.
+        userInputBox.value = ""; // Reset the Input box after adding the item
 
+        // To Mark the item as completed and move it to the completed section
+        var isClicked = false;
         function completeItem() {
             createItems.classList.toggle("completeItem");
+            if (!isClicked) {
+                completedItemsList.appendChild(createItems);
+                isClicked = true;
+            } else {
+                addedItemsList.appendChild(createItems);
+                isClicked = false;
+            }
         }
         createItems.addEventListener("click", completeItem);
 
-        // function deleteItem() {
-        //     var key = (event.keyCode ? event.keyCode : event.which); // Backspace button code = 8
-        //     if (key == 8) {
-        //         createItems.classList.add("deleteItem");
-        //     }
-        // }
-        // createItems.addEventListener("keypress", deleteItem);
+        // To Delete an item
+        var deleteBtn = document.createElement("button");
+        var deleteBtnNode = document.createTextNode("x");
+        deleteBtn.appendChild(deleteBtnNode);
+        createItems.appendChild(deleteBtn);
 
+        function deleteItem() {
+            createItems.classList.add("deleteItem");
+        }
+        deleteBtn.addEventListener("click", deleteItem);
     }
+    addBtn.click(addItemsClick);
 
-    // Accept items on Enter press (From keyboard)
+    // Accepts items on Enter press (From keyboard)
     function addItemsEnterPress() {
         var key = (event.keyCode ? event.keyCode : event.which); // Enter button code = 13
         if (key == 13) {
             addItemsClick();
         }
     }
-
-    addBtn.click(addItemsClick);
     userInputBox.addEventListener('keypress', addItemsEnterPress);
 
-    // var body = document.getElementsByTagName("body");
-    // body[0].innerHTML(); // Saves the state of the website in case of refresh (Saves entered items)
+    // Scrolls to the top
+    $('#displayWhenScrolling').click(function () {
+        $.scrollTo('#topOfPage', 1000);
+    });
+
+    // Displays the scrollTo button when the first element disappears
+    var upBtnWaypoint = new Waypoint({
+        element: document.getElementById('userInputBox'),
+        handler: function (direction) {
+            if (direction === 'down') {
+                $('#displayWhenScrolling').delay(500).fadeIn();
+            }
+            if (direction === 'up') {
+                $('#displayWhenScrolling').fadeOut();
+            }
+        },
+        offset: 1500
+    });
 });

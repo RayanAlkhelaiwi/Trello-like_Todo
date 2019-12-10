@@ -19,7 +19,7 @@
 }
 
 body {
-    height: 100%;
+    font-size: 20px;
     color: var(--main-green);
     font-family: 'Montserrat', sans-serif;
     background:
@@ -102,6 +102,7 @@ input {
 }
 
 li {
+    font-size: 20px;
     border: 2px solid var(--is-hovered);
     color: var(--main-green);
     background-color: var(--not-hovered);
@@ -166,6 +167,6 @@ a:hover {
     display: none;
 }
 
-hr:last-child{
+/* hr:last-child {
     display: none;
-}
+} */

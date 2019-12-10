@@ -15,6 +15,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="style/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Tomorrow&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/main.css">
     <title>To-Do List</title>
 </head>
@@ -29,7 +30,6 @@
             </div>
             <div class="col-md-2 columns"></div>
         </div>
-
         <div class="row">
             <div id="firstColumn" class="col-md-4 columns">
                 <p id="completeSentenceHint">Click on the item to mark as complete</p>
@@ -42,7 +42,7 @@
             <!-- Populate the user's items here -->
             <div id="secondColumn" class="col-md-4 columns">
                 <div id="listAddedItems">
-                    <p id="AddedItemsTitle">List:</p>
+                    <p class="itemsTitle">List:</p>
                     <ul id="AddedItems">
                     </ul>
                 </div>
@@ -51,7 +51,7 @@
             <!-- Move the completed items here -->
             <div id="thirdColumn" class="col-md-4 columns">
                 <div id="listCompletedItems">
-                    <p id="completedItemsTitle">Completed:</p>
+                    <p class="itemsTitle">Completed:</p>
                     <ul id="completedItems" class="moveCompleted">
                     </ul>
                 </div>
@@ -61,6 +61,7 @@
 
     <button id="displayWhenScrolling" class="hide btn btn-warning">^</button>
 
+    <footer><a target="_blanc" href="https://rayan.dev">&copy; Rayan Alkhelaiwi</a></footer>
     <!-- https://getbootstrap.com/docs/4.3/getting-started/introduction/ -->
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">

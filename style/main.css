@@ -4,82 +4,168 @@
     To-do List Website
 */
 
+:root {
+    --background-color: #00878a;
+    --entry-box: #ffc107;
+    --not-hovered: #5d8500;
+    --is-hovered: #314600;
+    --main-green: #89c400;
+    --completed-color: #00d800;
+    --completed-background: #008000;
+    --header-shadow: #002d2e;
+    --delete-background: #900000;
+    --delete-border: #500000;
+    --delete-x: #d1d1d1;
+}
+
 body {
-    background-color: #00878a;
-    color: #89c400;
+    height: 100%;
+    color: var(--main-green);
     font-family: 'Montserrat', sans-serif;
-    /* font-family: 'Exo', sans-serif; */
-    display: inline-block;
+    background:
+        -webkit-linear-gradient(315deg, hsla(200.61, 96.28%, 43.16%, 1) 0%, hsla(200.61, 96.28%, 43.16%, 0) 70%),
+        -webkit-linear-gradient(65deg, hsla(292.78, 91.29%, 43.17%, 1) 10%, hsla(292.78, 91.29%, 43.17%, 0) 80%),
+        -webkit-linear-gradient(135deg, hsla(256.83, 91.7%, 41.73%, 1) 15%, hsla(256.83, 91.7%, 41.73%, 0) 80%),
+        -webkit-linear-gradient(205deg, hsla(173.87, 98.84%, 41.89%, 1) 100%, hsla(173.87, 98.84%, 41.89%, 0) 70%);
 }
 
-.container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-auto-rows: minmax(125px, auto);
-    gap: 24px;
+#mainHeader {
+    font-family: 'Tomorrow', sans-serif;
+    font-size: 60px;
+    text-align: center;
+    letter-spacing: 0.2em;
+    margin-top: 24px;
+    margin-bottom: 40px;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--entry-box);
+    text-shadow: 4px 4px var(--main-green),
+        8px 8px var(--header-shadow);
+
 }
 
-.firstColumn {
-    padding: 16px;
-    background-color: antiquewhite;
+.columns {
+    margin-bottom: 16px;
 }
 
-.column {
-    margin: 24px;
+#firstColumn {
+    height: 0%;
+    border-radius: 8px;
+    border: 1px solid black;
+    background-color: var(--entry-box);
 }
 
-#results {
-    text-align: start;
-    font-size: xx-large;
+#completeSentenceHint,
+.itemsTitle {
+    color: #7baf00;
+    font-weight: bolder;
+    font-size: 16px;
+    text-shadow: 1px 1px var(--header-shadow);
+    margin-top: 12px;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+#completeSentenceHint:hover,
+.completeItem {
+    color: var(--completed-color);
+    background-color: var(--completed-background);
+    transition: all 0.5s ease;
 }
 
 input {
-    display: block;
+    width: 95%;
+    border-radius: 8px;
     border: 2px solid;
-    list-style: none;
-    transition: all 0.5s ease;
-    margin-bottom: 8px;
     padding: 8px;
-    justify-content: center;
+    margin-right: 8px;
+    margin-left: 8px;
+    margin-bottom: 8px;
 }
 
-button {
-    display: inline;
-    border: 2px solid;
+#addBtn {
+    background-color: var(--not-hovered);
+    width: 95%;
+    margin: 8px;
+    margin-bottom: 12px;
+}
+
+#addBtn:hover {
+    color: var(--delete-x);
+    background: var(--is-hovered);
+    transition: all 0.5s ease
+}
+
+.itemsTitle {
+    color: var(--entry-box);
+    font-size: 20px;
 }
 
 li {
-    display: flex;
-    font-family: 'Exo', sans-serif;
-    border: 2px solid #314600;
-    color: #89c400;
-    background-color: #5d8500;
+    border: 2px solid var(--is-hovered);
+    color: var(--main-green);
+    background-color: var(--not-hovered);
     list-style: none;
     transition: all 0.5s ease;
     margin-bottom: 8px;
-    padding: 8px;
-    justify-content: center;
+    padding-top: 8px;
+    border-radius: 8px;
+    text-align: center;
 }
 
 li:hover {
-    color: #314600;
+    color: var(--is-hovered);
 }
 
-#completeSentence {
-    padding: 4px;
+li>button {
+    position: relative;
+    left: -1%;
+    float: right;
+    border-radius: 8px;
+    color: var(--delete-x);
+    background-color: var(--delete-background);
+    border: 2px solid var(--delete-border);
 }
 
-.completeItem:hover {
-    color: #00aa00;
+a {
+    color: var(--main-green);
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
 }
 
-.completeItem,
-#completeSentence:hover {
-    color: #00d800;
-    background-color: #008000;
-    transition: all 0.5s ease;
+a:hover {
+    color: var(--entry-box);
+}
+
+#displayWhenScrolling {
+    border: 1px solid black;
+    font-size: xx-large;
+    font-weight: bold;
+    color: var(--main-green);
+    text-shadow: 1px 1px var(--header-shadow);
+    bottom: 16px;
+    left: 16px;
+    height: 40px;
+    padding: 8px;
+    position: fixed;
+    width: 40px;
+    text-align: center;
+    line-height: 0%;
 }
 
 .deleteItem {
+    display: none;
+}
+
+.checkItem {
+    stroke-linecap: var(--delete-border);
+}
+
+.hide {
+    display: none;
+}
+
+hr:last-child{
     display: none;
 }

@@ -119,9 +119,8 @@ li:hover {
 }
 
 li>button {
-    position: relative;
-    left: -1%;
-    float: right;
+    position: absolute;
+    right: 6%;
     border-radius: 8px;
     color: var(--delete-x);
     background-color: var(--delete-background);

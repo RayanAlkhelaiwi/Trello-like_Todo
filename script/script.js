@@ -15,13 +15,15 @@ $(document).ready(function () {
     var liIdCounter = 1; // To have dynamic id for each list item
     function addItemsClick() {
         var createItems = document.createElement("li");
+        // var dividor = document.createElement("hr");
         createItems.setAttribute("id", "li" + (liIdCounter++));
         var itemsNode = document.createTextNode(userInputBox.value);
         createItems.appendChild(itemsNode);
 
-        // Form Validation: To make sure not to add empty items (without the user's input)
-        if (userInputBox.value.length > 0) {
+        // Form Validation: To make sure not to add empty items or spaces
+        if (userInputBox.value.length > 0 && userInputBox.value.trim() != "") {
             addedItemsList.appendChild(createItems);
+            // addedItemsList.appendChild(dividor);
         }
 
         userInputBox.value = ""; // Reset the Input box after adding the item
@@ -32,9 +34,12 @@ $(document).ready(function () {
             createItems.classList.toggle("completeItem");
             if (!isClicked) {
                 completedItemsList.appendChild(createItems);
+                // completedItemsList.appendChild(dividor);
+
                 isClicked = true;
             } else {
                 addedItemsList.appendChild(createItems);
+                // addedItemsList.appendChild(dividor);
                 isClicked = false;
             }
         }
@@ -62,12 +67,12 @@ $(document).ready(function () {
     }
     userInputBox.addEventListener('keypress', addItemsEnterPress);
 
-    // Scrolls to the top
+    // The scrollTo Button to let it scrolls to the top
     $('#displayWhenScrolling').click(function () {
         $.scrollTo('#topOfPage', 1000);
     });
 
-    // Displays the scrollTo button when the first element disappears
+    // Displays the scrollTo button when the first element disappears (No Success)
     var upBtnWaypoint = new Waypoint({
         element: document.getElementById('userInputBox'),
         handler: function (direction) {

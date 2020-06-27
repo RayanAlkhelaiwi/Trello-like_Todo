@@ -1,5 +1,5 @@
-# To-Do List
-A To-Do list website that takes the user's input as an item and display the items in a list, and can be moved to the completed section upon a click on the list item
+# Trello-Like Todo List
+A Todo list website that takes the user's input as an item and display the items in a list, and can be moved to the completed section upon a click on the list item
 
 [Demo](https://rayan.dev/todo_list/)
 
